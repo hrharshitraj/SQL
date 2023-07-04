@@ -1,0 +1,48 @@
+CREATE DATABASE temp;    # To create a database;
+
+# All SQL specific keyword is written in Captial Letter;
+# You need to tell mySQL, which database you are going to use while creating a table;
+USE temp;
+
+# Creating a table-
+CREATE TABLE student (
+id INT PRIMARY KEY,
+name VARCHAR(255)       # VARCHAR -> VARCHAR, are better to use as they occupy space equal to the actual data size.
+);
+
+# The data type of a column defines what value the column can hold: integer, character, money, date and time, binary, and so on.
+# In MySQL there are three main data types: string, numeric, and date and time.
+
+# char -> 0-255 -> Fixed size -> CHAR(203);
+# varchar -> 0-255 -> Variable -> VARCHAR(255) -> Flexible size;
+# varchar is always better in terms of memory allocation as it only allocates the space that is going to be used;
+# BLOB -> Binary Large Object, stores audios, videos; (0-65535)
+
+
+# To insert any data in table(Adding an entry/tuple)-
+INSERT INTO student VALUES(1,'Harshit');
+INSERT INTO student VALUES(2,'Gopal');
+# To fetch the table-
+SELECT * FROM student;
+
+# ALl these commands can be run on CLI also, Command Line Interface;
+# Login into MySQL-
+# mysql -u root -p
+# Password: Harry@2003
+# show databases -> To see all the databases in mysql;
+# use temp;  Database changed to temp;
+# Database changed
+# show tables; -> It'll show tables created in temp; i.e, student
+
+# A,B,C-
+# ENUM -> Can assign only one preset values among A,B,C;
+# SET -> Can assign one or more preset values;
+
+# ENUM(val1, val2, val3, ...)	A string object that can have only one value, chosen from a list of possible values. 
+You can list up to 65535 values in an ENUM list. If a value is inserted that is not in the list, a blank value will be inserted. 
+The values are sorted in the order you enter them
+# SET(val1, val2, val3, ...)	A string object that can have 0 or more values, chosen from a list of possible values. You can list up to 64 values in a SET list
+
+# Note: All the numeric data types may have an extra option: UNSIGNED or ZEROFILL. 
+If you add the UNSIGNED option, MySQL disallows negative values for the column. 
+If you add the ZEROFILL option, MySQL automatically also adds the UNSIGNED attribute to the column.
